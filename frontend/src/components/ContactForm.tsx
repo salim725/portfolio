@@ -16,7 +16,11 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white/90 text-sm placeholder-white/25 outline-none focus:border-violet-500/50 focus:bg-white/[0.06] transition-all";
+    "w-full rounded-xl px-4 py-3 text-sm outline-none transition-all text-white/90 placeholder-white/25"
+    + " backdrop-blur-md border"
+    + " bg-white/[0.06] border-white/[0.1]"
+    + " focus:bg-white/[0.1] focus:border-violet-400/60"
+    + " hover:bg-white/[0.08]";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mt-8">
@@ -53,7 +57,7 @@ export default function ContactForm() {
       />
       <button
         type="submit"
-        className="btn-primary w-full"
+        className="btn-glass w-full"
         style={{ fontFamily: "'Syne', sans-serif" }}
       >
         Send Message →
