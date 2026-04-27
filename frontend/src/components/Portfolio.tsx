@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import ContactForm from "./ContactForm";
+import TechBackground from "./TechBackground";
 import type { TechCategory, Project, ContactField } from "../types";
 
 const NAV_LINKS = ["About", "Stack", "Projects", "Training", "Contact"];
@@ -397,6 +398,9 @@ export default function Portfolio() {
 
       {/* ── Grain ── */}
       <div className="grain" />
+
+      {/* ── Floating tech logos ── */}
+      <TechBackground />
 
       {/* ── Background orbs ── */}
       <div className="orb" style={{width:700,height:700,background:"radial-gradient(circle,rgba(139,92,246,0.35),transparent 70%)",top:-200,left:-200,animationDuration:"20s"}} />
