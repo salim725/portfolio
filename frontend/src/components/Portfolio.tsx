@@ -1,18 +1,59 @@
 import { useState, useEffect, useRef } from "react";
 import ContactForm from "./ContactForm";
-import type { TechItem, Project, ContactField } from "../types";
+import type { TechCategory, Project, ContactField } from "../types";
 
 const NAV_LINKS = ["About", "Stack", "Projects", "Training", "Contact"];
 
-const TECH_STACK: TechItem[] = [
-  { name: "React",      icon: "⚛️", color: "#61DAFB" },
-  { name: "Node.js",    icon: "🟢", color: "#68A063" },
-  { name: "PostgreSQL", icon: "🐘", color: "#336791" },
-  { name: "TypeScript", icon: "🔷", color: "#3178C6" },
-  { name: "Express",    icon: "⚡", color: "#f0c040" },
-  { name: "MongoDB",    icon: "🍃", color: "#47A248" },
-  { name: "Git",        icon: "🌿", color: "#F05032" },
-  { name: "REST APIs",  icon: "🔗", color: "#FF6B6B" },
+const TECH_CATEGORIES: TechCategory[] = [
+  {
+    label: "Frontend",
+    emoji: "🎨",
+    items: [
+      { name: "React",       icon: "⚛️",  color: "#61DAFB" },
+      { name: "TypeScript",  icon: "🔷",  color: "#3178C6" },
+      { name: "JavaScript",  icon: "🟨",  color: "#F7DF1E" },
+      { name: "HTML5",       icon: "🧱",  color: "#E34F26" },
+      { name: "CSS3",        icon: "🎨",  color: "#1572B6" },
+      { name: "Tailwind CSS",icon: "🌊",  color: "#38BDF8" },
+      { name: "Vite",        icon: "⚡",  color: "#646CFF" },
+    ],
+  },
+  {
+    label: "Backend",
+    emoji: "⚙️",
+    items: [
+      { name: "Node.js",     icon: "🟢",  color: "#68A063" },
+      { name: "Express",     icon: "🚂",  color: "#f0c040" },
+      { name: "REST APIs",   icon: "🔗",  color: "#FF6B6B" },
+      { name: "JWT",         icon: "🔐",  color: "#FB015B" },
+      { name: "Bcrypt",      icon: "🔑",  color: "#a78bfa" },
+      { name: "Nodemailer",  icon: "📧",  color: "#22D3EE" },
+      { name: "Joi / Zod",   icon: "✅",  color: "#34D399" },
+    ],
+  },
+  {
+    label: "Databases",
+    emoji: "🗄️",
+    items: [
+      { name: "MongoDB",     icon: "🍃",  color: "#47A248" },
+      { name: "PostgreSQL",  icon: "🐘",  color: "#336791" },
+      { name: "Mongoose",    icon: "🔌",  color: "#800000" },
+      { name: "SQL",         icon: "📊",  color: "#F29111" },
+    ],
+  },
+  {
+    label: "Tools & DevOps",
+    emoji: "🛠️",
+    items: [
+      { name: "Git",         icon: "🌿",  color: "#F05032" },
+      { name: "GitHub",      icon: "🐙",  color: "#E2E8F0" },
+      { name: "Postman",     icon: "📮",  color: "#FF6C37" },
+      { name: "Render",      icon: "☁️",  color: "#46E3B7" },
+      { name: "Cloudinary",  icon: "🖼️",  color: "#3448C5" },
+      { name: "VS Code",     icon: "💙",  color: "#007ACC" },
+      { name: "Cursor",      icon: "🤖",  color: "#a78bfa" },
+    ],
+  },
 ];
 
 const PROJECTS: Project[] = [
@@ -47,6 +88,7 @@ export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState(0);
   const [visible, setVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -431,7 +473,7 @@ export default function Portfolio() {
 
           {/* stats */}
           <div className="flex gap-4 flex-wrap">
-            {[{n:"200+",label:"Training Hours"},{n:"2+",label:"Projects Shipped"},{n:"8+",label:"Technologies"}].map((s)=>(
+            {[{n:"200+",label:"Training Hours"},{n:"2+",label:"Projects Shipped"},{n:"25+",label:"Technologies"}].map((s)=>(
               <div key={s.label} className="stat-card">
                 <p style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:28}} className="grad-text">{s.n}</p>
                 <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,color:"rgba(255,255,255,0.4)",marginTop:4,letterSpacing:"0.06em"}}>{s.label}</p>
@@ -473,20 +515,63 @@ export default function Portfolio() {
       <section id="projects" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="section-label block text-center mb-2">What I work with</p>
-          <h2 className="section-title text-center mb-14">Tech Stack</h2>
+          <h2 className="section-title text-center mb-10">Tech Stack</h2>
+
+          {/* Category tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {TECH_CATEGORIES.map((cat, i) => (
+              <button
+                key={cat.label}
+                onClick={() => setActiveTab(i)}
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  padding: "8px 20px",
+                  borderRadius: 999,
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                  border: activeTab === i
+                    ? "1px solid rgba(167,139,250,0.7)"
+                    : "1px solid rgba(255,255,255,0.1)",
+                  background: activeTab === i
+                    ? "linear-gradient(135deg,rgba(167,139,250,0.3),rgba(96,165,250,0.3))"
+                    : "rgba(255,255,255,0.04)",
+                  color: activeTab === i ? "white" : "rgba(255,255,255,0.45)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                {cat.emoji} {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Skills grid — animated on tab switch */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            {TECH_STACK.map((t)=>(
+            {TECH_CATEGORIES[activeTab].items.map((t, i) => (
               <div
                 key={t.name}
                 className="tech-glass"
+                style={{ animationDelay: `${i * 0.05}s`, opacity: 1 }}
                 onMouseEnter={() => setHoveredTech(t.name)}
                 onMouseLeave={() => setHoveredTech(null)}
               >
-                <span style={{fontSize:22}}>{t.icon}</span>
-                <span style={{color: hoveredTech===t.name ? t.color : "rgba(255,255,255,0.75)",transition:"color 0.2s"}}>{t.name}</span>
+                <span style={{ fontSize: 22 }}>{t.icon}</span>
+                <span style={{ color: hoveredTech === t.name ? t.color : "rgba(255,255,255,0.75)", transition: "color 0.2s" }}>
+                  {t.name}
+                </span>
+                {/* glow dot on hover */}
+                {hoveredTech === t.name && (
+                  <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: t.color, boxShadow: `0 0 8px ${t.color}`, flexShrink: 0 }} />
+                )}
               </div>
             ))}
           </div>
+
+          {/* total count badge */}
+          <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.2)", fontSize: 12, textAlign: "center", marginTop: 28, letterSpacing: "0.08em" }}>
+            {TECH_CATEGORIES.reduce((s, c) => s + c.items.length, 0)} technologies across {TECH_CATEGORIES.length} categories
+          </p>
         </div>
       </section>
 

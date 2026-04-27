@@ -4,6 +4,12 @@ export interface TechItem {
   color: string;
 }
 
+export interface TechCategory {
+  label: string;
+  emoji: string;
+  items: TechItem[];
+}
+
 export interface Project {
   title: string;
   desc: string;
