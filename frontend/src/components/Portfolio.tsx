@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
     title: "E-Commerce Platform",
     desc: "Full-stack app with JWT authentication, product management, cart system, and admin dashboard. Deployed on Render with MongoDB Atlas.",
     tags: ["React", "Node.js", "MongoDB", "JWT"],
-    github: "#",
+    github: "https://github.com/salim725/ecommerce-backend",
     live: "#",
     gradient: "from-violet-500 to-pink-500",
     number: "01",
@@ -75,6 +75,24 @@ const PROJECTS: Project[] = [
     live: "#",
     gradient: "from-cyan-400 to-blue-500",
     number: "02",
+  },
+  {
+    title: "CRM System",
+    desc: "Customer Relationship Management system with client tracking, deal pipeline, activity logs, and role-based access control for sales teams.",
+    tags: ["React", "Node.js", "PostgreSQL", "REST API"],
+    github: "#",
+    live: "#",
+    gradient: "from-orange-400 to-rose-500",
+    number: "03",
+  },
+  {
+    title: "Storefront — E-Commerce Frontend",
+    desc: "Responsive storefront connected to the e-commerce backend. Features product listing, search & filter, cart, checkout flow, and order history.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Axios"],
+    github: "#",
+    live: "#",
+    gradient: "from-emerald-400 to-cyan-500",
+    number: "04",
   },
 ];
 
@@ -477,7 +495,7 @@ export default function Portfolio() {
 
           {/* stats */}
           <div className="flex gap-4 flex-wrap">
-            {[{n:"200+",label:"Training Hours"},{n:"2+",label:"Projects Shipped"},{n:"25+",label:"Technologies"}].map((s)=>(
+            {[{n:"200+",label:"Training Hours"},{n:"4+",label:"Projects Shipped"},{n:"25+",label:"Technologies"}].map((s)=>(
               <div key={s.label} className="stat-card">
                 <p style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:28}} className="grad-text">{s.n}</p>
                 <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,color:"rgba(255,255,255,0.4)",marginTop:4,letterSpacing:"0.06em"}}>{s.label}</p>
@@ -607,7 +625,7 @@ export default function Portfolio() {
           ))}
 
           {/* coming soon card */}
-          <div className="glass-card p-8 flex flex-col items-center justify-center min-h-[220px] cursor-pointer group"
+          <div className="glass-card p-8 flex flex-col items-center justify-center min-h-[220px] cursor-pointer group md:col-span-2"
             style={{borderStyle:"dashed",borderColor:"rgba(167,139,250,0.2)"}}>
             <span className="text-5xl mb-4 group-hover:scale-110 transition-transform" style={{filter:"drop-shadow(0 0 12px rgba(167,139,250,0.6))"}}>+</span>
             <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.25)",fontSize:13}}>More projects coming soon</p>
