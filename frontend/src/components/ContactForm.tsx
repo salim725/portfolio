@@ -32,7 +32,7 @@ export default function ContactForm() {
           placeholder="Your name"
           required
           className={inputClass}
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
         />
         <input
           name="email"
@@ -42,7 +42,7 @@ export default function ContactForm() {
           placeholder="your@email.com"
           required
           className={inputClass}
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
         />
       </div>
       <textarea
@@ -53,12 +53,12 @@ export default function ContactForm() {
         required
         rows={5}
         className={inputClass + " resize-none"}
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
+        style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
       />
       <button
         type="submit"
         className="btn-glass w-full"
-        style={{ fontFamily: "'Syne', sans-serif" }}
+        style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
       >
         Send Message →
       </button>

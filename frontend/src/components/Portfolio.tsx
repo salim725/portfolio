@@ -138,9 +138,23 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden" style={{ fontFamily: "'DM Sans', sans-serif", background: "linear-gradient(135deg,#0f0c29 0%,#1a103d 35%,#0d1f3c 65%,#0a2a1f 100%)" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ fontFamily: "'Inter', system-ui, sans-serif", background: "linear-gradient(135deg,#0f0c29 0%,#1a103d 35%,#0d1f3c 65%,#0a2a1f 100%)" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+        /* ══════════════════════════════════════════
+           DESIGN SYSTEM — TYPOGRAPHY TOKENS
+        ══════════════════════════════════════════ */
+        :root {
+          --font-heading: 'Space Grotesk', system-ui, sans-serif;
+          --font-body:    'Inter', system-ui, sans-serif;
+          --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+        }
+        * { box-sizing: border-box; }
+
+        /* type helpers */
+        .t-heading  { font-family: var(--font-heading); }
+        .t-body     { font-family: var(--font-body); }
+        .t-mono     { font-family: var(--font-mono); }
 
         /* ── Animated background orbs ── */
         .orb {
@@ -186,14 +200,14 @@ export default function Portfolio() {
         /* ── Nav ── */
         .nav-link {
           position: relative;
-          font-size: 12px;
-          letter-spacing: 0.1em;
+          font-size: 11.5px;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           font-weight: 600;
-          color: rgba(255,255,255,0.55);
+          color: rgba(255,255,255,0.5);
           cursor: pointer;
           transition: color 0.2s;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-body);
         }
         .nav-link::after {
           content:'';
@@ -211,10 +225,10 @@ export default function Portfolio() {
 
         /* ── Buttons ── */
         .btn-glass {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 13px;
-          letter-spacing: 0.06em;
+          font-size: 13.5px;
+          letter-spacing: 0.04em;
           padding: 12px 30px;
           border-radius: 999px;
           cursor: pointer;
@@ -232,10 +246,10 @@ export default function Portfolio() {
           box-shadow: 0 8px 30px rgba(139,92,246,0.4);
         }
         .btn-outline-glass {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-heading);
           font-weight: 600;
-          font-size: 13px;
-          letter-spacing: 0.06em;
+          font-size: 13.5px;
+          letter-spacing: 0.04em;
           padding: 11px 30px;
           border-radius: 999px;
           cursor: pointer;
@@ -255,15 +269,15 @@ export default function Portfolio() {
 
         /* ── Tags / pills ── */
         .tag-glass {
-          font-size: 11px;
-          letter-spacing: 0.07em;
+          font-size: 10.5px;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
           padding: 4px 12px;
           border-radius: 999px;
           background: rgba(167,139,250,0.15);
           border: 1px solid rgba(167,139,250,0.3);
           color: rgba(200,185,255,0.9);
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-mono);
           font-weight: 500;
         }
 
@@ -277,10 +291,11 @@ export default function Portfolio() {
           -webkit-backdrop-filter: blur(16px);
           border: 1px solid rgba(255,255,255,0.1);
           font-size:14px; font-weight:500;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-body);
           color: rgba(255,255,255,0.75);
           transition: all 0.25s;
           cursor: default;
+          letter-spacing: -0.01em;
         }
         .tech-glass:hover {
           background: rgba(255,255,255,0.1);
@@ -291,23 +306,25 @@ export default function Portfolio() {
 
         /* ── Section labels ── */
         .section-label {
-          font-family:'DM Sans',sans-serif;
-          font-size:11px;
-          letter-spacing:0.2em;
-          text-transform:uppercase;
+          font-family: var(--font-mono);
+          font-size: 10.5px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
           background: linear-gradient(90deg,#a78bfa,#60a5fa);
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-          background-clip:text;
-          margin-bottom:10px;
-          display:inline-block;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 10px;
+          display: inline-block;
+          font-weight: 500;
         }
         .section-title {
-          font-family:'Syne',sans-serif;
-          font-weight:800;
-          font-size:clamp(28px,5vw,50px);
-          line-height:1.1;
-          color:white;
+          font-family: var(--font-heading);
+          font-weight: 700;
+          font-size: clamp(30px, 5vw, 52px);
+          line-height: 1.08;
+          letter-spacing: -0.03em;
+          color: white;
         }
 
         /* ── Fade-up ── */
@@ -316,8 +333,8 @@ export default function Portfolio() {
 
         /* ── Hero ghost text ── */
         .hero-ghost {
-          font-family:'Syne',sans-serif;
-          font-weight:800;
+          font-family: var(--font-heading);
+          font-weight:700;
           font-size:clamp(80px,20vw,220px);
           line-height:1;
           color:transparent;
@@ -354,9 +371,9 @@ export default function Portfolio() {
         /* ── Link pill ── */
         .link-pill {
           display:inline-flex; align-items:center; gap:5px;
-          font-size:11px; letter-spacing:0.08em;
+          font-size:10.5px; letter-spacing:0.1em;
           text-transform:uppercase;
-          font-family:'DM Sans',sans-serif; font-weight:600;
+          font-family: var(--font-mono); font-weight:500;
           color:rgba(167,139,250,0.7);
           text-decoration:none;
           transition:color 0.2s;
@@ -429,7 +446,7 @@ export default function Portfolio() {
       {/* ════════════════ NAV ════════════════ */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-lg shadow-black/20" : ""}`} style={{borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "none"}}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:22,letterSpacing:"-0.02em"}}>
+          <span style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:800,fontSize:22,letterSpacing:"-0.02em"}}>
             <span className="grad-text">SA</span>
             <span style={{color:"rgba(255,255,255,0.3)"}}>.</span>
           </span>
@@ -470,20 +487,20 @@ export default function Portfolio() {
           {/* badge */}
           <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,letterSpacing:"0.1em",color:"rgba(255,255,255,0.7)"}}>AVAILABLE FOR OPPORTUNITIES</span>
+            <span style={{fontFamily:"'Inter',system-ui,sans-serif",fontSize:12,letterSpacing:"0.1em",color:"rgba(255,255,255,0.7)"}}>AVAILABLE FOR OPPORTUNITIES</span>
           </div>
 
-          <h1 style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:"clamp(44px,9vw,96px)",lineHeight:1.05,marginBottom:20}}>
+          <h1 style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:800,fontSize:"clamp(44px,9vw,96px)",lineHeight:1.05,marginBottom:20}}>
             Salim<br />
             <span className="grad-text">Aldeadla</span>
             <span style={{color:"rgba(255,255,255,0.2)"}}>.</span>
           </h1>
 
-          <h2 style={{fontFamily:"'Syne',sans-serif",fontWeight:600,fontSize:"clamp(18px,3.5vw,36px)",color:"rgba(255,255,255,0.35)",marginBottom:24}}>
+          <h2 style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:600,fontSize:"clamp(18px,3.5vw,36px)",color:"rgba(255,255,255,0.35)",marginBottom:24}}>
             Junior Full-Stack Developer
           </h2>
 
-          <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.55)",maxWidth:520,fontSize:17,lineHeight:1.75,marginBottom:40}}>
+          <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.55)",maxWidth:520,fontSize:17,lineHeight:1.75,marginBottom:40}}>
             I build scalable web applications using React, Node.js and TypeScript —
             with a focus on clean architecture and real-world impact.
           </p>
@@ -497,8 +514,8 @@ export default function Portfolio() {
           <div className="flex gap-4 flex-wrap">
             {[{n:"200+",label:"Training Hours"},{n:"4+",label:"Projects Shipped"},{n:"25+",label:"Technologies"}].map((s)=>(
               <div key={s.label} className="stat-card">
-                <p style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:28}} className="grad-text">{s.n}</p>
-                <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,color:"rgba(255,255,255,0.4)",marginTop:4,letterSpacing:"0.06em"}}>{s.label}</p>
+                <p style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:800,fontSize:28}} className="grad-text">{s.n}</p>
+                <p style={{fontFamily:"'Inter',system-ui,sans-serif",fontSize:12,color:"rgba(255,255,255,0.4)",marginTop:4,letterSpacing:"0.06em"}}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -513,12 +530,12 @@ export default function Portfolio() {
             <h2 className="section-title mb-4">Building things<br /><span style={{color:"rgba(255,255,255,0.3)"}}>that matter.</span></h2>
           </div>
           <div className="glass-card p-8 space-y-5">
-            <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.65)",fontSize:16,lineHeight:1.8}}>
+            <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.65)",fontSize:16,lineHeight:1.8}}>
               Junior Full-Stack Developer with hands-on experience in React, Node.js, and
               PostgreSQL. Passionate about building real-world applications and continuously
               growing my skills.
             </p>
-            <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.4)",lineHeight:1.8,fontSize:15}}>
+            <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.4)",lineHeight:1.8,fontSize:15}}>
               I've worked through complete project lifecycles — from architecture planning
               and feature implementation through deployment and production debugging. I care
               about clean code, solid structure, and systems that scale.
@@ -546,7 +563,7 @@ export default function Portfolio() {
                 key={cat.label}
                 onClick={() => setActiveTab(i)}
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 13,
                   fontWeight: 600,
                   padding: "8px 20px",
@@ -591,7 +608,7 @@ export default function Portfolio() {
           </div>
 
           {/* total count badge */}
-          <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.2)", fontSize: 12, textAlign: "center", marginTop: 28, letterSpacing: "0.08em" }}>
+          <p style={{ fontFamily: "'Inter',system-ui,sans-serif", color: "rgba(255,255,255,0.2)", fontSize: 12, textAlign: "center", marginTop: 28, letterSpacing: "0.08em" }}>
             {TECH_CATEGORIES.reduce((s, c) => s + c.items.length, 0)} technologies across {TECH_CATEGORIES.length} categories
           </p>
         </div>
@@ -608,10 +625,10 @@ export default function Portfolio() {
               <div className={`h-0.5 w-20 bg-gradient-to-r ${p.gradient} rounded-full mb-8`} />
 
               {/* ghost number */}
-              <span style={{fontFamily:"'Syne',sans-serif",fontSize:68,fontWeight:800,color:"transparent",WebkitTextStroke:"1px rgba(255,255,255,0.05)",position:"absolute" as const,top:18,right:24,lineHeight:1,userSelect:"none" as const,pointerEvents:"none" as const}}>{p.number}</span>
+              <span style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontSize:68,fontWeight:800,color:"transparent",WebkitTextStroke:"1px rgba(255,255,255,0.05)",position:"absolute" as const,top:18,right:24,lineHeight:1,userSelect:"none" as const,pointerEvents:"none" as const}}>{p.number}</span>
 
-              <h3 style={{fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:22,marginBottom:10,color:"white"}}>{p.title}</h3>
-              <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.5)",lineHeight:1.75,fontSize:14,marginBottom:20}}>{p.desc}</p>
+              <h3 style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:700,fontSize:22,marginBottom:10,color:"white"}}>{p.title}</h3>
+              <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.5)",lineHeight:1.75,fontSize:14,marginBottom:20}}>{p.desc}</p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {p.tags.map((tag)=><span key={tag} className="tag-glass">{tag}</span>)}
@@ -628,7 +645,7 @@ export default function Portfolio() {
           <div className="glass-card p-8 flex flex-col items-center justify-center min-h-[220px] cursor-pointer group md:col-span-2"
             style={{borderStyle:"dashed",borderColor:"rgba(167,139,250,0.2)"}}>
             <span className="text-5xl mb-4 group-hover:scale-110 transition-transform" style={{filter:"drop-shadow(0 0 12px rgba(167,139,250,0.6))"}}>+</span>
-            <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.25)",fontSize:13}}>More projects coming soon</p>
+            <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.25)",fontSize:13}}>More projects coming soon</p>
           </div>
         </div>
       </section>
@@ -642,9 +659,9 @@ export default function Portfolio() {
               <h2 className="section-title mb-8">Training &<br />Education</h2>
               <div className="glass-card p-8">
                 <div className={`h-0.5 w-14 bg-gradient-to-r from-violet-500 to-blue-400 rounded-full mb-6`} />
-                <h3 style={{fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:19,marginBottom:8,color:"white"}}>Full-Stack Web Development</h3>
+                <h3 style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:700,fontSize:19,marginBottom:8,color:"white"}}>Full-Stack Web Development</h3>
                 <span className="tag-glass" style={{display:"inline-block",marginBottom:14}}>200+ Hours · Practicum</span>
-                <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.5)",fontSize:14,lineHeight:1.8,marginTop:8}}>
+                <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.5)",fontSize:14,lineHeight:1.8,marginTop:8}}>
                   Completed intensive full-stack training building real-world applications,
                   covering modern technologies, software architecture, and deployment workflows.
                 </p>
@@ -662,8 +679,8 @@ export default function Portfolio() {
                   style={{animationDelay:`${i*0.1}s`}}>
                   <span className="text-2xl float2" style={{animationDelay:`${i*0.4}s`}}>{item.icon}</span>
                   <div>
-                    <p style={{fontFamily:"'Syne',sans-serif",fontWeight:600,fontSize:14,color:"white"}}>{item.title}</p>
-                    <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.4)",fontSize:13,marginTop:4}}>{item.desc}</p>
+                    <p style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:600,fontSize:14,color:"white"}}>{item.title}</p>
+                    <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.4)",fontSize:13,marginTop:4}}>{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -677,7 +694,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <p className="section-label block text-center mb-2">Let's work together</p>
           <h2 className="section-title text-center mb-3">Get In Touch</h2>
-          <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.4)",textAlign:"center",marginBottom:48,maxWidth:420,margin:"0 auto 48px"}}>
+          <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.4)",textAlign:"center",marginBottom:48,maxWidth:420,margin:"0 auto 48px"}}>
             Open to junior roles, freelance projects, and collaborations.
           </p>
 
@@ -691,8 +708,8 @@ export default function Portfolio() {
                     {c.icon}
                   </div>
                   <div>
-                    <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.3)",fontSize:10,letterSpacing:"0.14em",textTransform:"uppercase",marginBottom:3}}>{c.label}</p>
-                    <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.8)",fontSize:13}}>{c.value}</p>
+                    <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.3)",fontSize:10,letterSpacing:"0.14em",textTransform:"uppercase",marginBottom:3}}>{c.label}</p>
+                    <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.8)",fontSize:13}}>{c.value}</p>
                   </div>
                   <span style={{marginLeft:"auto",color:"rgba(167,139,250,0.5)",fontSize:18}}>→</span>
                 </a>
@@ -702,7 +719,7 @@ export default function Portfolio() {
             {/* form */}
             <div className="glass-card p-8">
               <p className="section-label mb-1">Send a message</p>
-              <h3 style={{fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:20,color:"white"}}>Drop me a line</h3>
+              <h3 style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:700,fontSize:20,color:"white"}}>Drop me a line</h3>
               <ContactForm />
             </div>
           </div>
@@ -712,8 +729,8 @@ export default function Portfolio() {
       {/* ════════════════ FOOTER ════════════════ */}
       <footer className="glass border-t-0" style={{borderTop:"1px solid rgba(255,255,255,0.08)",padding:"28px 24px"}}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:18}} className="grad-text">SA.</span>
-          <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.2)",fontSize:12}}>
+          <span style={{fontFamily:"'Space Grotesk',system-ui,sans-serif",fontWeight:800,fontSize:18}} className="grad-text">SA.</span>
+          <p style={{fontFamily:"'Inter',system-ui,sans-serif",color:"rgba(255,255,255,0.2)",fontSize:12}}>
             © 2026 Salim Aldeadla · Built with React & TypeScript
           </p>
         </div>
