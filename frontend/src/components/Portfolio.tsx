@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
   {
     title: "CRM System",
     desc: "Customer Relationship Management system with client tracking, deal pipeline, activity logs, and role-based access control for sales teams.",
-    tags: ["React", "Node.js", "PostgreSQL", "REST API"],
+    tags: ["React", "Node.js", "MongoDB", "REST API"],
     github: "#",
     live: "#",
     gradient: "from-orange-400 to-rose-500",
